@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 15px rgba(255,255,255,0.8);
+    z-index: 10;
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 24px;
+    animation: fall linear infinite;
+    user-select: none;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<h1>I Love You ❤️</h1>
+
+<!-- Audio autoplay -->
+<audio autoplay loop>
+  <source src="https://p.scdn.co/mp3-preview/0b3a0f2e1234567890abcdef?cid=YOUR_SPOTIFY_CLIENT_ID" type="audio/mpeg">
+</audio>
+
+<script>
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.fontSize = 20 + Math.random() * 20 + 'px';
+    heart.style.animationDuration = 4 + Math.random() * 3 + 's';
+    heart.textContent = '💖';
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 7000);
+  }, 400);
+</script>
+
+</body>
+</html>
